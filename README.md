@@ -6,3 +6,5 @@
 - Safe arguments between fragments
 - Transitions with animations
 - Global actions
+
+<img src="screen-record.gif" width=400 />
