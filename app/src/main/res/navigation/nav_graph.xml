@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="es.miguelherrero.navigation.ui.main.MainFragment"
+        android:label="main_fragment"
+        tools:layout="@layout/main_fragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_topicFragment"
+            app:destination="@id/topicFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_playFragment"
+            app:destination="@id/playFragment"
+            app:enterAnim="@anim/translate_in_right"
+            app:exitAnim="@anim/translate_out_left"
+            app:popEnterAnim="@anim/translate_in_left"
+            app:popExitAnim="@anim/translate_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/playFragment"
+        android:name="es.miguelherrero.navigation.ui.main.PlayFragment"
+        android:label="PlayFragment" >
+        <argument
+            android:name="name"
+            android:defaultValue="No topic" /><deepLink app:uri="https://nav-game.com/topic/{name}"/>
+    </fragment>
+    <fragment
+        android:id="@+id/topicFragment"
+        android:name="es.miguelherrero.navigation.ui.main.TopicFragment"
+        android:label="TopicFragment" >
+        <action
+            android:id="@+id/action_topicFragment_to_playFragment"
+            app:destination="@id/playFragment"
+            app:enterAnim="@anim/translate_in_right"
+            app:exitAnim="@anim/translate_out_left"
+            app:popEnterAnim="@anim/translate_in_left"
+            app:popExitAnim="@anim/translate_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="es.miguelherrero.navigation.ui.main.LoginFragment"
+        android:label="LoginFragment" />
+    <action
+        android:id="@+id/action_global_loginFragment"
+        app:destination="@id/loginFragment"
+        app:enterAnim="@anim/translate_in_up"
+        app:exitAnim="@anim/translate_out_down"
+        app:popEnterAnim="@anim/translate_in_down"
+        app:popExitAnim="@anim/translate_out_up" />
+</navigation>
